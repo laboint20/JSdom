@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco dei dadi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #dado {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        input[type=button]{
+            font-size:16px;
+            background:linear-gradient(#ffbc00 5%,#ffdd7f 100%);
+            border:1px solid #dcdad2;
+            color:#4E4D4B;
+            font-weight:bold;
+            cursor:pointer;
+            width:10em;
+            border-radius:5px;
+            padding:10px 0;
+        
+        }
+    </style>
+</head>
+<body>
+    <h1>Gioco dei dadi</h1>
+    <input type="button" onClick="tiraDado()" value="Via"><br><br>
+    <img id="dado" src="imgdadi/dice1.png" alt="Dado"><br><br>
+    
+
+    <script>
+        let dado;
+    
+        function tiraDado() {
+            let numeroCasuale = Math.floor(Math.random() * 6) + 1;
+           
+    // Individua l'elemento img nel documento
+            dado=document.getElementById("dado");//seleziono un elemento specifico tramite il suo id
+            //dado=document.getElementsByTagName("img")[0];//seleziono un elemento specifico tramite il suo nome e la posizione
+            //dado=document.querySelector("img");//restituisce il primo elemento che corrisponde al selettore specificato
+            //dado=document.querySelectorAll("img")[0];
+       // Modifica l'attributo src dell'elemento img per mostrare 
+            //il dado corrispondente     
+            dado.src = "imgdadi/dice" + numeroCasuale + ".png";
+          
+        }
+       
+    </script>
+</body>
+</html>
