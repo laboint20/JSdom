@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      input[type=button] {
+        font-size:16px;
+        background:linear-gradient(#ffbc00 5%,#ffdd7f 100%);
+        border:1px solid #e5a900;
+        color:#4E4D4B;
+        font-weight:700;
+        cursor:pointer;
+        width:13em;
+        border-radius:5px;
+        padding:10px 0;
+        outline:solid
+      }
+      input[type=button]:hover {
+        background:linear-gradient(#ffdd7f 5%,#ffbc00 100%)
+      }
+      img{
+        width:400px;
+        border: solid 5px black;
+      }
+      div{
+        text-align: center;
+      }
+  </style>
+</head>
+<body onload="/*setInterval(avanti,1000)*/">
+    <div>
+        <img src="foto/f1.jpg" alt="descrizione foto">
+        <br><br>
+        <input type="button"  value="INDIETRO" onclick="indietro()">
+        <input type="button"  value="AVANTI" onclick="avanti()">
+        <br><br>
+        
+    </div>
+    
+    <script>
+      let immagine=document.querySelector('img');
+      const foto=['foto/f1.jpg','foto/f2.jpg','foto/f3.jpg'];
+      let i=0;
+      function indietro(){
+          if(i==0)
+            i=foto.length-1;
+          else
+            i--;
+        immagine.src=foto[i];
+      }
+      function avanti(){
+        if(i<foto.length-1)
+          i++;
+        else
+        i=0;
+      immagine.src=foto[i];
+      }
+    </script>   
+    </body>
+    </html>
