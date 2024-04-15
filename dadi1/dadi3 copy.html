@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #dado {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        input[type=button]{
+            font-size:16px;
+            background:linear-gradient(#ffbc00 5%,#ffdd7f 100%);
+            border:1px solid #dcdad2;
+            color:#4E4D4B;
+            font-weight:bold;
+            cursor:pointer;
+            width:10em;
+            border-radius:5px;
+            padding:10px 0;
+        
+        }
+    </style>
+</head>
+<body>
+    <h1>Gioco dei dadi</h1>
+<input type="button" onClick="tiraDado()" value="Tira il dado una volta"><br><br>
+<img id="dado" src="imgdadi/dice1.png" alt="Dado"><br>
+<input type="button" id="startButton" onClick="startInterval()" value="Tira il dado ogni 30ms"><br><br>
+<input type="button" id="stopButton" onClick="stopInterval()" value="Ferma"><br><br>
+<h3 style="text-align: left;">Estrazioni:</h3>
+<p>Numero totale di estrazioni: <span id="conteggioEstrazioni">0</span></p>
+<ul id="elencoFrequenze" style="text-align: left;display: none;">
+    <li>Uno: <span></span> volte</li>
+    <li>Due: <span></span> volte</li>
+    <li>Tre: <span></span> volte</li>
+    <li>Quattro: <span></span> volte</li>
+    <li>Cinque: <span></span> volte</li>
+    <li>Sei: <span></span> volte</li>
+</ul>
+<script>
+    let dado;
+    let frequenze = [0, 0, 0, 0, 0, 0]; // Array per memorizzare le frequenze
+    let conteggioEstrazioni = 0; // Contatore per il numero totale di estrazioni
+    let intervalID; // Variabile per memorizzare l'ID dell'intervallo
+
+    function tiraDado() {
+        let numeroCasuale = Math.floor(Math.random() * 6) + 1;
+        frequenze[numeroCasuale - 1]++; // incrementa la frequenza del numero estratto
+        dado = document.getElementById("dado");
+        dado.src = "imgdadi/dice" + numeroCasuale + ".png";
+        conteggioEstrazioni++; // Incrementa il contatore delle estrazioni
+        document.getElementById("conteggioEstrazioni").textContent = conteggioEstrazioni; // Aggiorna il conteggio nell'HTML
+        estrazioni();
+    }
+
+    function estrazioni() {
+        let spans = document.querySelectorAll('li span');
+        for (let i = 0; i < frequenze.length; i++) {
+            spans[i].innerHTML = frequenze[i]; // aggiorna gli elementi span col numero delle frequenze
+        }
+        ordinaElenco(); // Ordina l'elenco delle frequenze in base al numero di estrazioni
+        document.querySelector('#elencoFrequenze').style.display = 'block'; // visualizza l'elenco
+    }
+
+    function ordinaElenco() {
+        let elenco = document.getElementById("elencoFrequenze");
+        let items = elenco.querySelectorAll("li");
+
+        // Converte gli elementi in un array per poterli ordinare
+        let itemsArray = Array.from(items);
+
+        // Ordina l'array in base al numero di estrazioni (frequenze)
+        itemsArray.sort((a, b) => {
+            let indexA = parseInt(a.querySelector("span").textContent);
+            let indexB = parseInt(b.querySelector("span").textContent);
+            return indexB - indexA;
+        });
+
+        // Rimuove gli elementi dall'elenco
+        items.forEach(item => elenco.removeChild(item));
+
+        // Aggiunge gli elementi ordinati all'elenco
+        itemsArray.forEach(item => elenco.appendChild(item));
+    }
+
+    function startInterval() {
+        intervalID = setInterval(tiraDado, 30); // avvia l'intervallo e memorizza l'ID restituito
+        document.getElementById("startButton").disabled = true; // Disabilita il pulsante "Tira il dado ogni 30ms"
+    }
+
+    function stopInterval() {
+        clearInterval(intervalID); // Ferma l'intervallo utilizzando l'ID memorizzato
+        document.getElementById("startButton").disabled = false; // Abilita nuovamente il pulsante "Tira il dado ogni 30ms"
+    }
+</script>
+
+</body>
+</html>
