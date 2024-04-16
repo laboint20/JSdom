@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio Form ottimizzato</title>
+</head>
+<body>
+    <form name="frm_operazioni" style="width:70%;margin:auto">
+        <fieldset style="background-color: antiquewhite;">
+            <legend style="font-size:20px">Le quattro operazioni</legend>
+            <input type="text" size="25" id="txt_a"
+             placeholder="inserisci il primo valore">
+             <input type="text" size="25" id="txt_b"
+             placeholder="inserisci il secondo valore">
+             <select style="width: 180px" name="operazione" onchange="calcola()">
+                <option value="scegli">Scegli operazione</option>
+                <option value="+">Somma</option>
+                <option value="-">Sottrazione</option>
+                <option value="/">Divisione</option>
+                <option value="*">Moltiplicazione</option>
+            </select><br/><br/>
+             <input type="text" id="txt_risultato" placeholder="Qui il risultato" readonly disabled>
+             <input type="reset" value="cancella" onclick="canc()">
+        </fieldset>
+    </form>
+    <script src="codice.js"></script>
+</body>
+</html>
