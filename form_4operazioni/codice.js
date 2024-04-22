@@ -21,7 +21,7 @@ function calcola() {
     // definisce il pattern da controllare con la regular expression.
     let pattern=/^[0-9]+(\.[0-9]+)?$/;
     // Verifica se il primo numero è valido.     
-        if (a.value.search(pattern) == -1){
+        if (!a.value.match(pattern)){
         // Mostra un messaggio di avviso e reimposta il focus sul campo 'txt_a'.
         alert("Inserisci il primo valore");
         a.focus();
@@ -31,7 +31,7 @@ function calcola() {
 
     // Verifica se il secondo numero è valido.
           
-        if (b.value.search(pattern) == -1){
+        if (!b.value.match(pattern)){
         // Mostra un messaggio di avviso e reimposta il focus sul campo 'txt_b'.
         alert("Inserisci il secondo valore");
         b.focus();
