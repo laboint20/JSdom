@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice</title>
+    <style>
+        #calcolatrice {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .tasto {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+        }
+        #input_calcolo {
+            width: calc(100% - 10px);
+            margin-bottom: 10px;
+            font-size: 20px;
+            text-align: right;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: #e6e6e6;">
+
+<div id="calcolatrice">
+    <form name="calc">
+        <input type="text" name="io" id="input_calcolo" readonly/><br>
+        <input type="button" class="tasto" value="1" onclick="scrivi('1')"/>
+        <input type="button" class="tasto" value="2" onclick="scrivi('2')"/>
+        <input type="button" class="tasto" value="3" onclick="scrivi('3')"/>
+        <input type="button" class="tasto" value="+" onclick="scrivi('+')" /><br>
+        <input type="button" class="tasto" value="4" onclick="scrivi('4')"/>
+        <input type="button" class="tasto" value="5" onclick="scrivi('5')"/>
+        <input type="button" class="tasto" value="6" onclick="scrivi('6')"/>
+        <input type="button" class="tasto" value="-" onclick="scrivi('-')" /><br>
+        <input type="button" class="tasto" value="7" onclick="scrivi('7')"/>
+        <input type="button" class="tasto" value="8" onclick="scrivi('8')"/>
+        <input type="button" class="tasto" value="9" onclick="scrivi('9')"/>
+        <input type="button" class="tasto" value="*" onclick="scrivi('*')" /><br>
+        <input type="button" class="tasto" value="0" onclick="scrivi('0')">
+        <input type="reset" class="tasto" value="C">
+        <input type="button" class="tasto" value="." onclick="scrivi('.')">
+        <input type="button" class="tasto" value="/" onclick="scrivi('/')" /><br>
+        <input type="button" value="=" onclick="calcola()" style="width:100%;margin-top: 10px;" />
+    </form>
+</div>
+
+<script>
+    
+</script>
+
+</body>
+</html>
