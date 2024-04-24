@@ -14,14 +14,14 @@ function calcola() {
     // Recupera i valori inseriti nei campi di input e li converte in numeri.
     let num1 = parseFloat(a.value);
     let num2 = parseFloat(b.value);
-
     // Recupera l'elemento HTML dove mostrare il risultato.
     let risultato = document.getElementById('txt_risultato');
-
-    // definisce il pattern da controllare con la regular expression.
-    let pattern=/^[0-9]+(\.[0-9]+)?$/;
+    // Recupera l'elemento HTML relativo all'elenco delle operazioni.
+    let selectOperando = document.querySelector('select');
+    // definisce il pattern(sequenza di caratteri) da controllare con la regular expression.
+    let pattern=/^[0-9]+(\.[0-9]+)?$/;//le regexp sono modelli utilizzati per individuare combinazioni di caratteri all'interno di stringhe
     // Verifica se il primo numero è valido.     
-        if (!a.value.match(pattern)){
+        if (!a.value.match(pattern)){//il metodo match() restituisce un array contenente le corrispondenze trovate. Se nessuna corrispondenza viene trovata, restituirà null
         // Mostra un messaggio di avviso e reimposta il focus sul campo 'txt_a'.
         alert("Inserisci il primo valore");
         a.focus();
@@ -40,7 +40,7 @@ function calcola() {
     }
 
     // Recupera l'operazione selezionata dall'utente.
-    let operando = document.querySelector('select').selectedIndex;
+    let operando= selectOperando.selectedIndex;
 
     // Esegue il calcolo in base all'operazione selezionata.
     switch (operando) {
