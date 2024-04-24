@@ -75,33 +75,40 @@
         </tr>
         <tr>
             <td class="ora">I ora</td>
-            <td class="tps">TPS</td>
-            <td class="smot">Scienze motorie</td>
-            <td class="ita">Italiano</td>
-            <td class="tps">TPS</td>
-            <td class="smot">Scienze motorie</td>
-            <td class="ita">Italiano</td>
+            <td class="tps" onclick="associa(0)">TPS</td>
+            <td class="smot" onclick="associa(2)">Scienze motorie</td>
+            <td class="ita" onclick="associa(1)">Italiano</td>
+            <td class="tps" onclick="associa(0)">TPS</td>
+            <td class="smot" onclick="associa(2)">Scienze motorie</td>
+            <td class="ita" onclick="associa(1)">Italiano</td>
         </tr>
         <tr>
             <td class="ora">II ora</td>
-            <td class="info">Informatica</td>
-            <td class="smot">Scienze motorie</td>
-            <td class="ita">Italiano</td>
-            <td class="info">Informatica</td>
-            <td class="smot">Scienze motorie</td>
-            <td class="ita">Italiano</td>
+            <td class="info" onclick="associa(0,1)">Informatica</td>
+            <td class="smot" onclick="associa(3)">Scienze motorie</td>
+            <td class="ita" onclick="associa(2)">Italiano</td>
+            <td class="info" onclick="associa(0,1)">Informatica</td>
+            <td class="smot" onclick="associa(2)">Scienze motorie</td>
+            <td class="ita" onclick="associa(3)">Italiano</td>
         </tr>
         <tr>
             <td class="ora">III ora</td>
-            <td class="sis">Sistemi e Reti</td>
-            <td class="mat">Matematica</td>
-            <td class="sis">Sistemi e Reti</td>
-            <td class="info">Informatica</td>
-            <td class="eng">Inglese</td>
-            <td class="eng">Inglese</td>
+            <td class="sis" onclick="associa(3)">Sistemi e Reti</td>
+            <td class="mat" onclick="associa(5)">Matematica</td>
+            <td class="sis" onclick="associa(3)">Sistemi e Reti</td>
+            <td class="info" onclick="associa(0)">Informatica</td>
+            <td class="eng" onclick="associa(4)">Inglese</td>
+            <td class="eng" onclick="associa(4)">Inglese</td>
         </tr>
 
     </table>
+
+   <script>
+       function associa(i){
+           const professori= ['Laini',' Labozzetta','ssa Pianta','Cannarozzi','Ferrari','ssa Trotti','ssa Cretti'];
+           alert('Prof.'+ professori[i]);
+       }   
+   </script> 
 
 </body>
 </html>
