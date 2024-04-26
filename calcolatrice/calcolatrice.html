@@ -55,7 +55,30 @@
 </div>
 
 <script>
-    
+    function scrivi(valore) {
+        document.getElementById("input_calcolo").value += valore;
+    }
+    /* inserendo la funzione eval in un blocco try-catch, verrà valutata 
+    l'espressione inserita. 
+    Se è valida, viene visualizzato il
+    risultato corrispondente. Se contiene
+    un errore oppure è in formato non valido, 
+    viene visualizzato un messaggio di errore.
+    In questo modo si evita il rischio di
+    injection di codice dannoso.  */
+    function calcola() {
+        var input = document.getElementById("input_calcolo").value;
+        try {
+            var risultato = eval(input);
+            if (!isNaN(risultato)) {
+                document.getElementById("input_calcolo").value = risultato;
+            } else {
+                throw "Espressione non valida";
+            }
+        } catch (error) {
+            document.getElementById("input_calcolo").value = "Errore";
+        }
+    }
 </script>
 
 </body>
